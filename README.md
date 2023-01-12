@@ -1,5 +1,7 @@
 # Sentry for Titanium SDK
 
+<img src="./.github/sentry-logo.png" height="80" />
+
 Use the native Sentry SDKs (iOS & Android) in the Titanium SDK.
 
 ## Requirements
