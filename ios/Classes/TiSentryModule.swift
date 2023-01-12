@@ -30,8 +30,6 @@ class TiSentryModule: TiModule {
       return
     }
     
-    NSLog("[WARN] INIT: \(params)")
-
     SentrySDK.start { options in
       options.dsn = TiUtils.stringValue("dsn", properties: params)
       options.debug = TiUtils.boolValue("debugEnabled", properties: params, def: false)
@@ -40,8 +38,6 @@ class TiSentryModule: TiModule {
       options.attachStacktrace = TiUtils.boolValue("attachStacktrace", properties: params, def: false)
       options.attachViewHierarchy = TiUtils.boolValue("attachViewHierarchy", properties: params, def: false)
       options.enableAutoPerformanceTracking = TiUtils.boolValue("enableAutoPerformanceTracking", properties: params, def: true)
-      
-      NSLog("[WARN] DSN: \(options.dsn ?? "n/a")")
     }
   }
   
