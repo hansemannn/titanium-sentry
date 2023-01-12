@@ -1,0 +1,4 @@
+
+dependencies {
+    implementation 'io.sentry:sentry-android:6.11.0'
+}
