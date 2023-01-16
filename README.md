@@ -7,7 +7,8 @@ Use the native Sentry SDKs (iOS & Android) in the Titanium SDK.
 ## Sponsor
 
 <img src="./.github/sponsor-logo.jpg" height="60" />
-This module was sponsored by [Korelogic](https://www.korelogic.co.uk/). Go check them out today"
+
+This module was sponsored by [Korelogic](https://www.korelogic.co.uk). Go check them out today!
 
 ## Requirements
 
