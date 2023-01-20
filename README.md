@@ -26,6 +26,7 @@ import Sentry from 'ti.sentry';
 2. Start the crash monitoring with additional options (or no options for the default behavior):
 ```js
 Sentry.start({
+  dsn: 'https://examplePublicKey@o0.ingest.sentry.io/0', // required (!)
   debugEnabled: true, // default: false
   enableAppHangTracking: true, // default: false
   attachScreenshot: true, // default: false
