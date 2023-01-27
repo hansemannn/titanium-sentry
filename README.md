@@ -50,6 +50,14 @@ All additional options (like on iOS) are configured the same way, e.g ANR tracki
 ```
 You can find all available options [here](https://docs.sentry.io/platforms/android/configuration/options/).
 
+## Additional APIs
+
+### Methods
+
+- `setContext('key', { value1: 'hello', value2: 'world' })` -> iOS only
+- `setUser({ email, userId, username, ipAddress, segment, data })` -> iOS only
+- `addBreadcrumb({ level: Sentry.LEVEL_INFO, category: 'my_category', message: 'Hello world' })` -> iOS only
+
 ## Author
 
 Hans Knöchel
