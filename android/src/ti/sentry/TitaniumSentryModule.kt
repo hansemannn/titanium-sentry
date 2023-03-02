@@ -9,7 +9,10 @@
 
 package ti.sentry
 
+import io.sentry.ScopeCallback
 import io.sentry.Sentry
+import io.sentry.protocol.User
+import org.appcelerator.kroll.KrollDict
 import org.appcelerator.kroll.KrollModule
 import org.appcelerator.kroll.annotations.Kroll
 
@@ -21,5 +24,26 @@ class TitaniumSentryModule: KrollModule() {
 	@Kroll.method
 	fun captureMessage(message: String) {
 		Sentry.captureMessage(message)
+	}
+
+	@Kroll.method
+	@Kroll.setProperty
+	fun setContent(key: String, value: Any) {
+		Sentry.configureScope {
+			it.setContexts(key, value)
+		}
+	}
+
+	@Kroll.method
+	@Kroll.setProperty
+	fun setUser(params: KrollDict) {
+		val user = User()
+		user.id = params.getString("userId")
+		user.username = params.getString("username")
+		user.ipAddress = params.getString("ipAddress")
+		user.segment = params.getString("segment")
+		user.data = params["data"] as Map<String, String>
+
+		Sentry.setUser(user)
 	}
 }

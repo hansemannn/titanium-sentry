@@ -67,8 +67,8 @@ class TiSentryModule: TiModule {
   }
   
   @objc(setUser:)
-  func setUser(args: [Any]) {
-    guard let params = args.first as? [String: Any] else {
+  func setUser(args: Any) {
+    guard let params = args as? [String: Any] else {
       fatalError("Missing parameters")
     }
     
@@ -84,8 +84,8 @@ class TiSentryModule: TiModule {
   }
   
   @objc(addBreadcrumb:)
-  func addBreadcrumb(args: [Any]) {
-    guard let params = args.first as? [String: Any] else {
+  func addBreadcrumb(args: Any) {
+    guard let params = args as? [String: Any] else {
       fatalError("Missing parameters")
     }
     
