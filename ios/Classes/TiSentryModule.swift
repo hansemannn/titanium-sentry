@@ -57,9 +57,10 @@ class TiSentryModule: TiModule {
   }
   
   @objc(setContext:)
-  func setContext(params: [Any]) {
-    guard let key = params.first as? String,
-          let value = params[1] as? [String: Any] else { fatalError("Missing context" ) }
+  func setContext(args: [Any]) {
+    guard let params = args.first as? [String: Any],
+          let key = params["key"] as? String,
+          let value = params["value"] as? [String: Any] else { fatalError("Missing context" ) }
 
     SentrySDK.configureScope { scope in
       scope.setContext(value: value, key: key)

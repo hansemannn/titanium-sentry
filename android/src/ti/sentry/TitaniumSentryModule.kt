@@ -9,7 +9,6 @@
 
 package ti.sentry
 
-import io.sentry.ScopeCallback
 import io.sentry.Sentry
 import io.sentry.protocol.User
 import org.appcelerator.kroll.KrollDict
@@ -28,7 +27,10 @@ class TitaniumSentryModule: KrollModule() {
 
 	@Kroll.method
 	@Kroll.setProperty
-	fun setContent(key: String, value: Any) {
+	fun setContext(context: KrollDict) {
+		val key = context["key"] as String
+		val value = context["value"] as Any
+
 		Sentry.configureScope {
 			it.setContexts(key, value)
 		}
