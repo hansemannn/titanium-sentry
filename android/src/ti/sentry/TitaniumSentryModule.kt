@@ -43,8 +43,9 @@ class TitaniumSentryModule: KrollModule() {
 		user.id = params.getString("userId")
 		user.username = params.getString("username")
 		user.ipAddress = params.getString("ipAddress")
+		user.email = params.getString("email")
 		user.segment = params.getString("segment")
-		user.data = params["data"] as Map<String, String>
+		user.data = params["data"] as? Map<String, String>
 
 		Sentry.setUser(user)
 	}
